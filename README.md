@@ -8,6 +8,19 @@ To do this, the build script converts the Markdown to HTML using `pandoc` and
 `pandoc-citeproc`, stuffs it into the body of the `skel.html`, and uses Prince
 to typeset that into a PDF.
 
+## Dependencies:
+
+- [Pandoc](https://github.com/jgm/pandoc) - Handles translation of Markdown to
+  HTML. Pandoc is a Haskell library and command line application for converting
+  between various document formats. In addition to citation management, it
+  handles syntax highlighting for me.
+- [`pandoc-citeproc`](https://github.com/jgm/pandoc-citeproc) - handles
+  citations, as an extension of Pandoc. Sure, I could use `citeproc-node` or
+  `citeproc-js`, but I’m already using Pandoc, and it’s just so elegant.
+- [Prince](https://www.princexml.com/) - I’m using Prince for HTML/CSS-to-PDF
+  conversion because it’s free for noncommercial use, does a nice job on the
+  rendering, and handles ligatures nicely.
+
 ## Document specs:
 
 The sample stylesheet targets APA Style, with the following properties:
@@ -29,6 +42,14 @@ them at some point, they’ll get an implementation.
 - Level 1, 2, and 3 headings
 - Appendices
 - Tables and Figures
+
+## Non-APA Features:
+
+Non-spec features are implemented because I like the results and I haven’t
+gotten in trouble for them yet, or are implementations of school-specific
+peculiarities.
+
+- Syntax Highlighting for code listings
 
 ## Licensing and Such
 
