@@ -1,0 +1,22 @@
+{
+  "name": "paper-templates",
+  "version": "1.0.0",
+  "description": "A collection of stylesheets, skeletons, and build utilities for typesetting academic assignments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seangllghr/apa-paper-template.git"
+  },
+  "author": "Sean Gallagher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seangllghr/apa-paper-template/issues"
+  },
+  "homepage": "https://github.com/seangllghr/apa-paper-template#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
+}
