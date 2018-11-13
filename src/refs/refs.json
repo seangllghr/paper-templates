@@ -1,0 +1,82 @@
+[
+	{
+		"id": "churchill",
+		"type": "webpage",
+		"title": "Winston Churchill's Iron Curtain Speech, Fulton, MO",
+		"URL": "https://www.nationalchurchillmuseum.org/sinews-of-peace-iron-curtain-speech.html",
+		"author": [
+			{
+				"literal": "National Churchill Museum"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2018",
+					11,
+					11
+				]
+			]
+		}
+	},
+	{
+		"id": "whitehouse",
+		"type": "article",
+		"title": "Press Release by the White House [Press Release]",
+		"URL": "https://www.trumanlibrary.org/whistlestop/study_collections/bomb/large/documents/index.php?documentdate=1945-08-06&documentid=59&pagenumber=1",
+		"author": [
+			{
+				"literal": "The White House, Office of the Press Secretary"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1945",
+					8,
+					6
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2018",
+					11,
+					11
+				]
+			]
+		}
+	},
+	{
+		"id": "atomic",
+		"type": "personal_communication",
+		"title": "Estimate of the Status of the Russian Atomic Energy Project",
+		"archive": "The Atomic Archive",
+		"URL": "http://www.atomicarchive.com/Docs/Hydrogen/Soviet.shtml",
+		"author": [
+			{
+				"family": "Hillenhofer",
+				"given": "R.H."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1948",
+					7,
+					25
+				]
+			]
+		},
+		"accessed": {
+			"date-parts": [
+				[
+					"2018",
+					11,
+					11
+				]
+			]
+		}
+	}
+]

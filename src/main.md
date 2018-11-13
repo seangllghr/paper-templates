@@ -2,8 +2,8 @@
 title: Sample APA Paper
 author: Sean Gallagher
 language: en-US
-bibliography: refs/refs.json
-csl: styles/apa.csl
+bibliography: src/refs/refs.json
+csl: src/styles/apa.csl
 ---
 
 # Sample APA Paper #
@@ -16,7 +16,7 @@ Pellentesque vel dolor a elit volutpat semper nec vitae tellus. Fusce faucibus
 neque velit, in aliquet neque commodo at. Praesent et tellus non leo hendrerit
 volutpat. Nulla vitae sapien iaculis, commodo sapien ut, aliquet tortor. Aenean
 ut metus pharetra neque lobortis faucibus. Praesent ut porta ante, at hendrerit
-nunc.
+nunc. [@churchill]
 
 Pellentesque in lacus dignissim justo sodales posuere sit amet non quam.
 Suspendisse consequat iaculis ex ut egestas. Suspendisse potenti. Aenean a mi
@@ -27,13 +27,13 @@ sed diam vestibulum sagittis. Suspendisse finibus augue a vestibulum imperdiet.
 Nam eget massa et tortor vulputate vehicula vel sed libero. Aenean tincidunt
 faucibus libero a condimentum. Cras vitae ex vel nulla euismod iaculis at at
 risus. Nam malesuada libero in pretium elementum. Integer id magna pretium,
-pharetra massa eget, sollicitudin nunc.
+pharetra massa eget, sollicitudin nunc. [@whitehouse]
 
 Phasellus magna nibh, accumsan nec congue eleifend, vehicula non eros.
 Curabitur sed risus eu diam feugiat finibus. Phasellus ac laoreet quam. Morbi
 efficitur sed orci vel blandit. Sed vitae egestas lacus. Integer ac gravida
 est. Duis euismod bibendum vestibulum. Proin ullamcorper lobortis tristique.
-Aliquam convallis ornare neque, sit amet sodales turpis egestas a.
+Aliquam convallis ornare neque, sit amet sodales turpis egestas a. [@atomic]
 
 Aenean in sem pretium, ornare mauris non, maximus justo. Aliquam erat volutpat.
 Phasellus eu purus ligula. Maecenas eu purus et nisi lobortis suscipit sed ut

@@ -4,7 +4,8 @@
   "description": "A collection of stylesheets, skeletons, and build utilities for typesetting academic assignments",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node build.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,7 @@
     "url": "https://github.com/seangllghr/paper-templates/issues"
   },
   "homepage": "https://github.com/seangllghr/paper-templates#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.2"
+  }
 }

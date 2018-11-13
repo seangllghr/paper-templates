@@ -21,7 +21,7 @@
   /* Dark mode and tweaks to make the browser version look like a paper */
 
   html {
-    background color: #222;
+    background-color: #222;
     color: white;
   }
   
@@ -38,6 +38,10 @@
   .container {
     max-width: 6.5in;
     margin: 0 auto;
+  }
+
+  header {
+    display: none;
   }
 }
 
