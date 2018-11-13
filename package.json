@@ -8,15 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/seangllghr/apa-paper-template.git"
+    "url": "git+https://github.com/seangllghr/paper-templates.git"
   },
   "author": "Sean Gallagher",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/seangllghr/apa-paper-template/issues"
+    "url": "https://github.com/seangllghr/paper-templates/issues"
   },
-  "homepage": "https://github.com/seangllghr/apa-paper-template#readme",
-  "devDependencies": {
-    "gulp": "^4.0.0"
-  }
+  "homepage": "https://github.com/seangllghr/paper-templates#readme",
+  "devDependencies": {}
 }
