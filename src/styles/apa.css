@@ -1,0 +1,124 @@
+@page {
+  margin: 1in;
+  size: letter;
+
+  @top-left {
+    content: flow(title);
+  }
+
+  @top-right {
+    content: counter(page);
+  }
+}
+
+@page:first {
+  @top-left {
+    content: "Running head: " flow(title);
+  }
+}
+
+@media screen {
+  /* Dark mode and tweaks to make the browser version look like a paper */
+
+  html {
+    background color: #222;
+    color: white;
+  }
+  
+  a {
+    font-weight: lighter;
+    text-decoration: none;
+    color: white;
+  }
+
+  body {
+    margin: 1in 0;
+  }
+
+  .container {
+    max-width: 6.5in;
+    margin: 0 auto;
+  }
+}
+
+@media print {
+  html, body {
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  header {
+    flow: static(header);
+  }
+}
+
+html {
+  font-family: "LM Roman 12", "Times New Roman", Times, serif;
+  font-size: 12pt;
+  line-height: 2;
+  font-variant-ligatures: normal;
+  hyphens: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* TODO: Implement separate rules for Level 1, 2, & 3 headers for APA spec */
+  page-break-after: avoid;
+  font-size: 12pt;
+  font-weight: normal;
+  margin: 0;
+}
+
+p {
+  text-indent: 0.5in;
+  margin: 0;
+  widows: 2;
+  orphans: 2;
+  text-align: left;
+}
+
+blockquote {
+  margin: 0;
+  margin-left: 0.5in;
+}
+
+blockquote p:first-of-type {
+  text-indent: 0;
+}
+
+.titlepage {
+  height: 9in;
+}
+
+.titlepage-title {
+  height: 4.5in;
+  display: flex;
+  align-items: center;
+}
+
+.content-title {
+  page-break-before: always;
+  text-align: center;
+}
+
+.header-block {
+  page: first;
+  page-break-after: avoid;
+  margin: 0 auto;
+}
+
+.header-block p {
+  text-indent: 0;
+  text-align: center;
+}
+
+#references {
+  /* Refs section header, not refs list */
+  text-align: center;
+}
+
+.references p {
+  padding-left: 0.5in;
+  text-indent: -0.5in;
+}
