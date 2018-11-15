@@ -10,6 +10,13 @@ to typeset that into a PDF.
 
 ## Dependencies:
 
+- Linux - In theory, everything here is nominally cross-platform, but I’m not
+  motivated enough to test it. Also, I don’t currently maintain non-Linux
+  installations.
+
+- [Node.js](https://nodejs.org/en/) & [npm](https://www.npmjs.com/) - The build
+  script uses Javascript, and depends on several Node libraries.
+
 - [Pandoc](https://github.com/jgm/pandoc) - Handles translation of Markdown to
   HTML. Pandoc is a Haskell library and command line application for converting
   between various document formats. In addition to citation management, it
