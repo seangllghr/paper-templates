@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/seangllghr/paper-templates#readme",
   "devDependencies": {
-    "cheerio": "^1.0.0-rc.2"
+    "cheerio": "^1.0.0-rc.2",
+    "fs-extra": "^7.0.1"
   }
 }
