@@ -6,7 +6,7 @@ bibliography: src/refs/refs.json
 csl: src/styles/apa.csl
 ---
 
-# Sample APA Paper #
+# Sample APA Paper: An example of HTML typesetting for academic writing #
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia commodo
 nisi sed vehicula. In id tortor mi. Curabitur ut tortor efficitur, iaculis

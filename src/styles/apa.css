@@ -3,17 +3,23 @@
   size: letter;
 
   @top-left {
-    content: flow(title);
+    content: flow(header);
+    font-family: "LM Roman 12", "Times New Roman", serif;
+    font-size: 12pt;
   }
 
   @top-right {
     content: counter(page);
+    font-family: "LM Roman 12", "Times New Roman", serif;
+    font-size: 12pt;
   }
 }
 
 @page:first {
   @top-left {
-    content: "Running head: " flow(title);
+    content: "Running head: " flow(header);
+    font-family: "LM Roman 12", "Times New Roman", serif;
+    font-size: 12pt;
   }
 }
 
@@ -59,7 +65,7 @@
 }
 
 html {
-  font-family: "LM Roman 12", "Times New Roman", Times, serif;
+  font-family: "LM Roman 12", "Times New Roman", serif;
   font-size: 12pt;
   line-height: 2;
   font-variant-ligatures: normal;
@@ -72,6 +78,11 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12pt;
   font-weight: normal;
   margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 1in;
 }
 
 p {
