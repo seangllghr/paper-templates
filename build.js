@@ -4,7 +4,9 @@ const fs = require("fs-extra")
 const child = require("child_process")
 const cheerio = require("cheerio")
 const yaml = require("js-yaml")
+const argv = require("minimist")(process.argv.slice(2))
 
+console.log(argv)
 // Make sure we have a directory to build into
 try {
   fs.statSync("./build")
@@ -58,8 +60,7 @@ $("#university").html(metadata["university"])
 // Some additional heading tweaks for a pretty PDF index
 $("article").attr("title", metadata["short-title"])
 
-// TODO: Restructure refs section for better semantics (replace divs with cites or
-//       sections, as appropriate, move header into section
+// Restructure refs section for better semantics
 $("div#refs > div").appendTo("section#main-references")
 $("div#refs").remove()
 
