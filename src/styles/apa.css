@@ -3,7 +3,7 @@
   size: letter;
 
   @top-left {
-    content: flow(header);
+    content: element(header);
     font-family: "LM Roman 12", "Times New Roman", serif;
     font-size: 12pt;
   }
@@ -17,7 +17,7 @@
 
 @page:first {
   @top-left {
-    content: "Running head: " flow(header);
+    content: element(short-title);
     font-family: "LM Roman 12", "Times New Roman", serif;
     font-size: 12pt;
   }
@@ -41,7 +41,7 @@
     margin: 1in 0;
   }
 
-  .container {
+  main {
     max-width: 6.5in;
     margin: 0 auto;
   }
@@ -55,12 +55,36 @@
   html, body {
     margin: 0;
   }
+
   a {
     text-decoration: none;
     color: black;
   }
-  header {
-    flow: static(header);
+
+  header.short-title {
+    position: running(short-title);
+  }
+
+  header.running {
+    position: running(header);
+  }
+
+  #title-page {
+    prince-bookmark-label: "Title Page";
+    prince-bookmark-level: 1;
+  }
+
+  article {
+    prince-bookmark-level: 1;
+    prince-bookmark-label: attr(title);
+  }
+
+  #main-references {
+    page-break-before: always;
+  }
+
+  #main-references h1 {
+    prince-bookmark-level: 1;
   }
 }
 
@@ -78,11 +102,20 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12pt;
   font-weight: normal;
   margin: 0;
+  prince-bookmark-level: none;
 }
 
 h1 {
   text-align: center;
-  margin: 0 1in;
+}
+
+address {
+  font-style: normal;
+}
+
+address p {
+  text-align: center;
+  text-indent: 0;
 }
 
 p {
@@ -102,38 +135,19 @@ blockquote p:first-of-type {
   text-indent: 0;
 }
 
-.titlepage {
+#title-page {
   height: 9in;
+  page: first;
 }
 
-.titlepage-title {
+.title-page-half {
   height: 4.5in;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
-.content-title {
-  page-break-before: always;
-  text-align: center;
-}
-
-.header-block {
-  page: first;
-  page-break-after: avoid;
-  margin: 0 auto;
-}
-
-.header-block p {
-  text-indent: 0;
-  text-align: center;
-}
-
-#references {
-  /* Refs section header, not refs list */
-  text-align: center;
-}
-
-.references p {
+#references p {
   padding-left: 0.5in;
   text-indent: -0.5in;
 }

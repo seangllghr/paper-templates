@@ -7,8 +7,24 @@
     <link rel="stylesheet" type="text/css" href="styles/apa.css">
   </head>
   <body>
-    <header>Document Short Title</header>
-    <main class="container" contenteditable spellcheck>
+    <main>
+      <section id="title-page">
+        <header class="short-title">Running head: </header>
+        <div class="title-page-half">
+          <address class="title-block">
+            <h1 class="title"></h1>
+            <p id="author"></p>
+            <p id="university"></p>
+          </address>
+        </div>
+      </section>
+      <article contenteditable spellcheck>
+        <header class="running"></header>
+        <h1 class="title"></h1>
+      </article>
+      <section id="main-references" class="references">
+        <h1>References</h1>
+      </section>
     </main>
   </body>
 </html>

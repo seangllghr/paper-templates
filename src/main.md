@@ -1,12 +1,11 @@
 ---
-title: Sample APA Paper
-author: Sean Gallagher
+title: "Sample APA Paper: An example of<br>HTML typesetting for academic writing"
+author: "Sean Gallagher"
+university: "Southern New Hampshire University"
 language: en-US
 bibliography: src/refs/refs.json
 csl: src/styles/apa.csl
 ---
-
-# Sample APA Paper: An example of HTML typesetting for academic writing #
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacinia commodo
 nisi sed vehicula. In id tortor mi. Curabitur ut tortor efficitur, iaculis
@@ -87,5 +86,3 @@ tellus scelerisque, tincidunt felis non, lacinia turpis. Suspendisse at rutrum
 magna, sed scelerisque purus. Praesent dapibus ante vestibulum commodo tempus.
 Sed id gravida libero, ut maximus dui. Maecenas in posuere odio. Vestibulum
 eros nisi, sodales id libero vitae, molestie lobortis enim.
-
-## References ##
