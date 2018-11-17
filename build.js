@@ -6,7 +6,21 @@ const cheerio = require("cheerio")
 const yaml = require("js-yaml")
 const argv = require("minimist")(process.argv.slice(2))
 
-console.log(argv)
+// Set the target document based on args
+let mainDoc = ""
+let buildTarget = ""
+if ("s" in argv) {
+  // Build the sample document
+  mainDoc = "src/sample.md"
+  buildTarget = "sample.pdf"
+} else if ("f" in argv) {
+  mainDoc = "src/main.md"
+  buildTarget = "final.pdf"
+} else {
+  mainDoc = "src/main.md"
+  buildTarget = "build/draft.pdf"
+}
+
 // Make sure we have a directory to build into
 try {
   fs.statSync("./build")
@@ -21,11 +35,11 @@ child.spawnSync("pandoc", [
   "build/prebuild.html",
   "--filter",
   "pandoc-citeproc",
-  "src/main.md",
+  mainDoc,
 ])
 
 // Parse metadata from the YAML header
-let metadata = yaml.loadAll(fs.readFileSync("src/main.md"))[0]
+let metadata = yaml.loadAll(fs.readFileSync(mainDoc))[0]
 
 // Load the HTML skeleton and the prebuild content
 console.log("Building...")
@@ -52,17 +66,31 @@ if (metadata["title"].length > 50) {
 }
 $("header").append(metadata["short-title"])
 
-// Build title page from YAML metadata
+// Build title page or header block from YAML metadata
+if ("t" in argv) {
+  $("#short-heading-block").remove()
+} else {
+  $("section#title-page").remove()
+  $("header#short-title").remove()
+}
+$(".author").html(metadata["author"])
+$(".short-title").html(metadata["short-title"])
+$(".course").html(metadata["course"])
+$(".university").html(metadata["university"])
+
+// Insert the title in the appropriate places
 $(".title").html(metadata["title"])
-$("#author").html(metadata["author"])
-$("#university").html(metadata["university"])
 
 // Some additional heading tweaks for a pretty PDF index
 $("article").attr("title", metadata["short-title"])
 
-// Restructure refs section for better semantics
-$("div#refs > div").appendTo("section#main-references")
-$("div#refs").remove()
+// Move references into their own section
+if ($("div#refs").length) {
+  $("div#refs > div").appendTo("section#main-references")
+  $("div#refs").remove()
+} else {
+  $("section#main-references").remove()
+}
 
 // Write the built HTML draft to disk and copy over stylesheets
 fs.writeFileSync("build/draft.html", $.html())
@@ -70,4 +98,4 @@ fs.copySync("src/styles", "build/styles")
 
 // Typeset the final PDF using Prince
 console.log("Typesetting PDF...")
-child.spawnSync("prince", ["-o", "build/draft.pdf", "build/draft.html"])
+child.spawnSync("prince", ["-o", buildTarget, "build/draft.html"])

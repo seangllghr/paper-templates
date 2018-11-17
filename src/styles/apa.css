@@ -61,11 +61,11 @@
     color: black;
   }
 
-  header.short-title {
+  header#short-title {
     position: running(short-title);
   }
 
-  header.running {
+  header#running {
     position: running(header);
   }
 
@@ -109,12 +109,21 @@ h1 {
   text-align: center;
 }
 
-address {
+#title-page address {
   font-style: normal;
 }
 
-address p {
+#title-page address p {
   text-align: center;
+  text-indent: 0;
+}
+
+#short-heading-block address {
+  font-style: normal;
+}
+
+#short-heading-block address p {
+  text-align: left;
   text-indent: 0;
 }
 
