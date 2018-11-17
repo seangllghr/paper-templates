@@ -56,7 +56,49 @@ Non-spec features are implemented because I like the results and I haven’t
 gotten in trouble for them yet, or are implementations of school-specific
 peculiarities.
 
-- Syntax Highlighting for code listings
+- Simple four-line heading blocks instead of full title pages
+- Syntax Highlighting for code listings (Planned)
+
+## Usage:
+
+A `main.md` template is included in `src`; at this time, support for compiling
+arbitrary files is not planned (not that it’s hard, just that it’s not really
+the point...), so if you choose to remove the template, you *MUST* name your
+file `main.md`. Write the body of your paper in the appropriate place using
+Pandoc Markdown syntax. Use the npm script to build the document:
+
+`npm run build`
+
+The default build mode is to build to a PDF file named `draft.pdf` in the build
+directory. Arbitrary full-path export is planned&mdash;for submission and
+publication purposes. Default builds will use the simple first-page header,
+rather than the formal title page.
+
+To build with a full formal title page, pass a `-t` flag to the script after
+npm’s required `--` separator:
+
+`npm run build -- -t`
+
+### Metadata:
+
+Metadata is included in `main.md`, using (probably non-standard) YAML. Pandoc
+uses the `bibliography` and `csl` fields to create a bibliography; a sample
+`refs.json` is included at `src/refs/refs.json`. In theory, this file can be any
+bibliography database format that Pandoc can process (BibLaTeX, CSL-JSON,
+possibly others), but I haven’t tested it.
+
+The `title` field is nominally required, while `short-title` is only required if
+`title` is longer than 50 characters and does not contain a subtitle separated
+by a colon. It’s plausible that omitting a title altogether will cause the paper
+to build elegantly without a running header or title in the header block when
+built using the simple header style. It may also fail spectacularly. I haven’t
+tested this, so use it at your own risk, at least until I verify its
+functionality.
+
+`course` is the course number, which is included in the simple header.
+`university` is included in both the simple header and the formal title page.
+`language` is currently superfluous; if I implement a web publish build option
+in the future, I’ll use this to set the `lang` property on the page.
 
 ## Licensing and Such
 
