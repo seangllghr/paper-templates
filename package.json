@@ -19,6 +19,7 @@
   "homepage": "https://github.com/seangllghr/paper-templates#readme",
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "fs-extra": "^7.0.1"
+    "fs-extra": "^7.0.1",
+    "js-yaml": "^3.12.0"
   }
 }
