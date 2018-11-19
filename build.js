@@ -39,7 +39,9 @@ child.spawnSync("pandoc", [
 ])
 
 // Parse metadata from the YAML header
-let metadata = yaml.loadAll(fs.readFileSync(mainDoc))[0]
+// TODO: Fix broken YAML parsing
+let metaFile = fs.readFileSync("src/main.md", "utf8").split("...\n\n")[0]
+let metadata = yaml.load(metaFile)
 
 // Load the HTML skeleton and the prebuild content
 console.log("Building...")
