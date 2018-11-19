@@ -97,7 +97,6 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  /* TODO: Implement separate rules for Level 1, 2, & 3 headers for APA spec */
   page-break-after: avoid;
   font-size: 12pt;
   font-weight: normal;
@@ -107,6 +106,42 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   text-align: center;
+}
+
+/* Header tags h2-h6 implement the five levels of APA sectioning headings.
+ * Note that h4-h6 are inline headers; this requires raw HTML <p> and <h*>
+ * tags in the Markdown source.
+ * */
+
+h2 {
+  text-align: center;
+  font-weight: bold;
+}
+
+h3 {
+  text-align: left;
+  font-weight: bold;
+  text-indent: 0;
+}
+
+h4 {
+  display: inline;
+  font-weight: bold;
+  padding-left: 0.5in;
+}
+
+h5 {
+  display: inline;
+  font-weight: bold;
+  font-style: italic;
+  padding-left: 0.5in;
+}
+
+h6 {
+  display: inline;
+  font-weight: normal;
+  font-style: italic;
+  padding-left: 0.5in;
 }
 
 #title-page address {
