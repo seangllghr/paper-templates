@@ -100,6 +100,17 @@ functionality.
 `language` is currently superfluous; if I implement a web publish build option
 in the future, I’ll use this to set the `lang` property on the page.
 
+## Quirks:
+
+### APA Section Headings
+
+APA specifies five levels of section headings. These headings are implemented
+using `<h2>`-`<h6>` HTML heading tags, with `<h1>` reserved for the paper title.
+Third- through sixth-level headings are specified as inline headings; in order
+to get Pandoc to format headings inline, raw HTML `<h*>` tags must be used in
+place of the Markdown `###`-`######`, and the paragraph must be explicitly
+wrapped in `<p>` tags.
+
 ## Licensing and Such
 
 I haven’t picked a license for this project principally because I expect it to
