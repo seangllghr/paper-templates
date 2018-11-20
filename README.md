@@ -28,6 +28,35 @@ to typeset that into a PDF.
   conversion because it’s free for noncommercial use, does a nice job on the
   rendering, and handles ligatures nicely.
 
+## Installation:
+
+Clone into a directory with a relevant project name, and install the deps:
+
+~~~
+git clone https://github.com/seangllghr/paper-templates.git your-project
+npm install -D
+~~~
+
+## Usage:
+
+A `main.md` template is included in `src`; at this time, support for compiling
+arbitrary files is not planned (not that it’s hard, just that it’s not really
+the point...), so if you choose to remove the template, you *MUST* name your
+file `main.md`. Write the body of your paper in the appropriate place using
+Pandoc Markdown syntax. Use the npm script to build the document:
+
+`npm run build`
+
+The default build mode is to build to a PDF file named `draft.pdf` in the build
+directory. Arbitrary full-path export is planned&mdash;for submission and
+publication purposes. Default builds will use the simple first-page header,
+rather than the formal title page.
+
+To build with a full formal title page, pass a `-t` flag to the script after
+npm’s required `--` separator:
+
+`npm run build -- -t`
+
 ## Document specs:
 
 The sample stylesheet targets APA Style, with the following properties:
@@ -58,26 +87,6 @@ peculiarities.
 
 - Simple four-line heading blocks instead of full title pages
 - Syntax Highlighting for code listings (Planned)
-
-## Usage:
-
-A `main.md` template is included in `src`; at this time, support for compiling
-arbitrary files is not planned (not that it’s hard, just that it’s not really
-the point...), so if you choose to remove the template, you *MUST* name your
-file `main.md`. Write the body of your paper in the appropriate place using
-Pandoc Markdown syntax. Use the npm script to build the document:
-
-`npm run build`
-
-The default build mode is to build to a PDF file named `draft.pdf` in the build
-directory. Arbitrary full-path export is planned&mdash;for submission and
-publication purposes. Default builds will use the simple first-page header,
-rather than the formal title page.
-
-To build with a full formal title page, pass a `-t` flag to the script after
-npm’s required `--` separator:
-
-`npm run build -- -t`
 
 ### Metadata:
 
