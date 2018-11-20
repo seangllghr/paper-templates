@@ -67,6 +67,7 @@ The sample stylesheet targets APA Style, with the following properties:
 - Paper title centered on first page of content
 - Double-spaced paragraphs, indented ½ inch, with no extra space between
 - APA-style in-text citations and reference list, processed from CSL-JSON
+- Five APA-specified headings
 
 ## Specifications NOT implemented:
 
@@ -75,7 +76,6 @@ them at some point, they’ll get an implementation.
 
 - Abstract and abstract page
 - Author’s notes on title page
-- Level 1, 2, and 3 headings
 - Appendices
 - Tables and Figures
 
@@ -104,7 +104,7 @@ wrapped in `<p>` tags.
 Metadata is included in `main.md`, using (probably non-standard) YAML. Pandoc
 uses the `bibliography` and `csl` fields to create a bibliography; a sample
 `refs.json` is included at `src/refs/refs.json`. In theory, this file can be any
-bibliography database format that Pandoc can process (BibLaTeX, CSL-JSON,
+bibliography database format that Pandoc can process (BibLaTeX, CSL JSON,
 possibly others), but I haven’t tested it.
 
 The `title` field is nominally required, while `short-title` is only required if
@@ -119,6 +119,13 @@ functionality.
 `university` is included in both the simple header and the formal title page.
 `language` is currently superfluous; if I implement a web publish build option
 in the future, I’ll use this to set the `lang` property on the page.
+
+### Reference Processing
+
+References are processed using Pandoc’s implementation of `citeproc`. A
+sample reference database is provided in CSL JSON; however, any database
+format supported by Pandoc should work. Full documentation is available in the
+[Pandoc docs](http://pandoc.org/MANUAL.html#citations).
 
 ## Licensing and Such
 
