@@ -88,6 +88,17 @@ peculiarities.
 - Simple four-line heading blocks instead of full title pages
 - Syntax Highlighting for code listings (Planned)
 
+## Quirks:
+
+### APA Section Headings
+
+APA specifies five levels of section headings. These headings are implemented
+using `<h2>`-`<h6>` HTML heading tags, with `<h1>` reserved for the paper title.
+Third- through sixth-level headings are specified as inline headings; in order
+to get Pandoc to format headings inline, raw HTML `<h*>` tags must be used in
+place of the Markdown `###`-`######`, and the paragraph must be explicitly
+wrapped in `<p>` tags.
+
 ### Metadata:
 
 Metadata is included in `main.md`, using (probably non-standard) YAML. Pandoc
@@ -108,17 +119,6 @@ functionality.
 `university` is included in both the simple header and the formal title page.
 `language` is currently superfluous; if I implement a web publish build option
 in the future, I’ll use this to set the `lang` property on the page.
-
-## Quirks:
-
-### APA Section Headings
-
-APA specifies five levels of section headings. These headings are implemented
-using `<h2>`-`<h6>` HTML heading tags, with `<h1>` reserved for the paper title.
-Third- through sixth-level headings are specified as inline headings; in order
-to get Pandoc to format headings inline, raw HTML `<h*>` tags must be used in
-place of the Markdown `###`-`######`, and the paragraph must be explicitly
-wrapped in `<p>` tags.
 
 ## Licensing and Such
 
