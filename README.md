@@ -97,7 +97,8 @@ using `<h2>`-`<h6>` HTML heading tags, with `<h1>` reserved for the paper title.
 Third- through sixth-level headings are specified as inline headings; in order
 to get Pandoc to format headings inline, raw HTML `<h*>` tags must be used in
 place of the Markdown `###`-`######`, and the paragraph must be explicitly
-wrapped in `<p>` tags.
+wrapped in `<p class="no-break-inside">` tags; the class prevents breaking after
+the inline heading.
 
 ### Metadata:
 

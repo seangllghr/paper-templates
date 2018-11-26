@@ -97,11 +97,14 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  page-break-after: avoid;
   font-size: 12pt;
   font-weight: normal;
   margin: 0;
   prince-bookmark-level: none;
+}
+
+h1, h2, h3 {
+  page-break-after: avoid;
 }
 
 h1 {
@@ -110,7 +113,8 @@ h1 {
 
 /* Header tags h2-h6 implement the five levels of APA sectioning headings.
  * Note that h4-h6 are inline headers; this requires raw HTML <p> and <h*>
- * tags in the Markdown source.
+ * tags in the Markdown source. Also, use .no-break-inside to avoid breaking
+ * inside the first paragraph of a subsubsection or below.
  * */
 
 h2 {
@@ -142,6 +146,10 @@ h6 {
   font-weight: normal;
   font-style: italic;
   padding-left: 0.5in;
+}
+
+.no-break-inside {
+  page-break-inside: avoid;
 }
 
 #title-page address {
@@ -177,6 +185,11 @@ blockquote {
 
 blockquote p:first-of-type {
   text-indent: 0;
+}
+
+.man-page-br {
+  display: block;
+  page-break-after: always;
 }
 
 #title-page {
