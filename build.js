@@ -1,24 +1,44 @@
 #!/usr/bin/node
 
+/*
+ * This script builds a document from the sources in src/
+ * Usage: npm run build [-- -options]
+ *
+ * -f path/to/source.md: Arbitrary source file
+ * -n: No firstpage title
+ * -p path/to/file.pdf: Publish to path/to/file.pdf
+ * -s: Build the sample document
+ * -t: Build the document with a full titlepage
+ */
+
 const fs = require("fs-extra")
 const child = require("child_process")
 const cheerio = require("cheerio")
 const yaml = require("js-yaml")
 const argv = require("minimist")(process.argv.slice(2))
 
+console.log(argv)
+
+// TODO: Parse values from metadata to set flags like -n and -t in yaml head
+
 // Set the target document based on args
 let mainDoc = ""
 let buildTarget = ""
+// Set the output file. -s overrides -p
 if ("s" in argv) {
   // Build the sample document
   mainDoc = "src/sample.md"
   buildTarget = "sample.pdf"
-} else if ("f" in argv) {
-  mainDoc = "src/main.md"
-  buildTarget = "final.pdf"
+} else if ("p" in argv) {
+  buildTarget = argv["p"]
+} else {
+  buildTarget = "build/draft.pdf"
+}
+// Set the input file. Note that -f will override the sample input of -s
+if ("f" in argv) {
+  mainDoc = argv["f"]
 } else {
   mainDoc = "src/main.md"
-  buildTarget = "build/draft.pdf"
 }
 
 // Make sure we have a directory to build into
@@ -79,6 +99,9 @@ $(".author").html(metadata["author"])
 $(".short-title").html(metadata["short-title"])
 $(".course").html(metadata["course"])
 $(".university").html(metadata["university"])
+if ("n" in argv) {
+  $("article > .title").remove()
+}
 
 // Insert the title in the appropriate places
 $(".title").html(metadata["title"])
