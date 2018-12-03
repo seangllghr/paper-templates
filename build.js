@@ -4,6 +4,7 @@
  * This script builds a document from the sources in src/
  * Usage: npm run build [-- -options]
  *
+ * -d: Print debug info
  * -f path/to/source.md: Arbitrary source file
  * -n: No firstpage title
  * -p path/to/file.pdf: Publish to path/to/file.pdf
@@ -17,9 +18,9 @@ const cheerio = require("cheerio")
 const yaml = require("js-yaml")
 const argv = require("minimist")(process.argv.slice(2))
 
-console.log(argv)
-
-// TODO: Parse values from metadata to set flags like -n and -t in yaml head
+if ("d" in argv) {
+  console.log("Arguments: " + argv)
+}
 
 // Set the target document based on args
 let mainDoc = ""
@@ -27,18 +28,44 @@ let buildTarget = ""
 // Set the output file. -s overrides -p
 if ("s" in argv) {
   // Build the sample document
-  mainDoc = "src/sample.md"
   buildTarget = "sample.pdf"
 } else if ("p" in argv) {
   buildTarget = argv["p"]
 } else {
   buildTarget = "build/draft.pdf"
 }
+if ("d" in argv) {
+  console.log("Build target: " + buildTarget)
+}
 // Set the input file. Note that -f will override the sample input of -s
 if ("f" in argv) {
   mainDoc = argv["f"]
+} else if ("s" in argv) {
+  mainDoc = "src/sample.md"
 } else {
   mainDoc = "src/main.md"
+}
+if ("d" in argv) {
+  console.log("Source file: " + mainDoc)
+}
+
+// Parse metadata from the YAML header
+let metaFile = fs.readFileSync("src/main.md", "utf8").split("...\n\n")[0]
+let metadata = yaml.load(metaFile)
+if ("d" in argv) {
+  console.log("Metadata:")
+  console.log(metadata)
+}
+
+// Parse values from metadata to set flags like -n and -t in yaml head
+if (!("t" in argv) && ("titlepage" in metadata)) {
+  argv["t"] = true
+}
+if (!("n" in argv) && ("no-article-title" in metadata)) {
+  argv["n"] = true
+}
+if ("d" in argv) {
+  console.log("New argv: " + argv)
 }
 
 // Make sure we have a directory to build into
@@ -46,6 +73,9 @@ try {
   fs.statSync("./build")
 } catch (e) {
   fs.mkdirSync("./build")
+  if ("d" in argv) {
+    console.log("No build directory detected. Creating ./build")
+  }
 }
 
 // Prebuild the paper content using Pandoc
@@ -57,11 +87,6 @@ child.spawnSync("pandoc", [
   "pandoc-citeproc",
   mainDoc,
 ])
-
-// Parse metadata from the YAML header
-// TODO: Fix broken YAML parsing
-let metaFile = fs.readFileSync("src/main.md", "utf8").split("...\n\n")[0]
-let metadata = yaml.load(metaFile)
 
 // Load the HTML skeleton and the prebuild content
 console.log("Building...")
