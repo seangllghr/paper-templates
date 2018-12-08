@@ -98,18 +98,19 @@ $("article").append(draft)
 $("title").html(metadata["title"])
 
 // Build short header from title or short title metadata
-if (metadata["title"].length > 50) {
-  if ("short-title" in metadata) {
-    $("header").html(metadata["short-title"])
-  } else if (metadata["title"].includes(":")) {
-    metadata["short-title"] = metadata["title"].split(":")[0]
+// TODO: Implement automatic sentence casing to comply with APA
+if (!"short-title" in metadata || metadata["short-title"] == "") {
+  if (metadata["title"].length > 50) {
+    if (metadata["title"].includes(":")) {
+      metadata["short-title"] = metadata["title"].split(":")[0]
+    } else {
+      console.log("WARN: Could not determine running head for title > 50 chars.")
+      metadata["short-title"] =
+        "No short title provided for title > 50 chars"
+    }
   } else {
-    console.log("WARN: Could not determine running head for title > 50 chars.")
-    metadata["short-title"] =
-      "No short title provided for title > 50 chars"
+    metadata["short-title"] = metadata["title"]
   }
-} else {
-  metadata["short-title"] = metadata["title"]
 }
 $("header").append(metadata["short-title"])
 
