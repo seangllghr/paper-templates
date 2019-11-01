@@ -1,5 +1,10 @@
 # paper-templates
 
+Note that this project is now abandoned. I've stopped using this in favor of my
+[`makepaper` script](https://github.com/seangllghr/makepaper), which better
+leverages the power of Pandoc's templating and is designed for global
+installation. **That means this project is abandoned. Use at your own risk.**
+
 `paper-templates` is a set of stylesheets and skeletons for typesetting academic
 assignments in HTML & CSS using PrinceXML or another HTML/CSS to PDF formatter.
 I’m developing it to make my own life easier, but if it helps someone else,
