@@ -1,6 +1,6 @@
 # paper-templates
 
-Note that this project is now abandoned. I've stopped using this in favor of my
+I've stopped using this in favor of my
 [`makepaper` script](https://github.com/seangllghr/makepaper), which better
 leverages the power of Pandoc's templating and is designed for global
 installation. **That means this project is abandoned. Use at your own risk.**
